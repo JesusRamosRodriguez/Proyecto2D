@@ -8,9 +8,7 @@
 	{
 		private var right_:Boolean;
 		public function Bala(right:Boolean) 
-		{
-			trace('Nueva bala!')
-			
+		{			
 			right_ = right;
 			addEventListener(Event.ENTER_FRAME, update);					//Move
 			if(!right_)
