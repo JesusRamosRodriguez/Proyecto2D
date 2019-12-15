@@ -18,7 +18,8 @@
 			limitRight=icebergLimitRight;
 			limitLeft=icebergLimitLeft;
 			addEventListener(Event.ENTER_FRAME, update);
-			scaleX=direction;
+			scaleX=1.5*direction;
+			scaleY=1.5;
 		}
 		private function update(e:Event):void
 		{
