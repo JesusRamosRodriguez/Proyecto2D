@@ -21,21 +21,33 @@
 			addEventListener(Event.ENTER_FRAME, update);
 			scaleX=1.5*direction;
 			scaleY=1.5;
+			dead=true;
+			visible=false;
 		}
 		public function Die(){
 			dead=true;
+			visible=false;
 		}
-		public function isAlive():Boolean{
+		public function Respawn(dir:int){
+			dead=false;
+			visible=true;
+			scaleX=1.5*dir;
+			scaleY=1.5;
+			direction=dir;
+		}
+		public function isDead():Boolean{
 			return dead;
 		}
 		private function update(e:Event):void
 		{
-			if(x<limitRight && x>limitLeft){
-				x +=speed*direction;
-				gotoAndStop('andar');
-			}
-			else{
-				gotoAndStop('idle');
+			if(!dead){
+				if(x<limitRight && x>limitLeft){
+					x +=speed*direction;
+					gotoAndStop('andar');
+				}
+				else{
+					gotoAndStop('idle');
+				}
 			}
 		}
 	}
